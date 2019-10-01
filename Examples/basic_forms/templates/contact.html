@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Form{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block body %}
+    <div>
+        <h1>This is a form using flask-wtf</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }} {{ form.name() }}
+            {{ form.email.label }} {{ form.email() }}
+            {{ form.phone_number.label }} {{ form.phone_number() }}
+            {{ form.message.label }} {{ form.message() }}
+            {{ form.submit() }}
+        </form>
+    </div>
+    <div>
+        <h2>Form Messages</h2>
+        <p>{{ get_flashed_messages() }}</p>
+    </div>
+
+{% endblock body %}

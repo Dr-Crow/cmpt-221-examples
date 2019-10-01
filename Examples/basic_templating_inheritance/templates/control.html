@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+    {% if name_of_page %}
+            {{ name_of_page }}
+    {% else %}
+        NO NAME
+    {% endif %}
+{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block body %}
+    <ul>
+        {% for number in number_list %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

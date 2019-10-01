@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/external.css', _external=True) }}">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1 style="color: blue;background-color: pink;">This is a heading!</h1>
+    <style>
+        .internal {
+            border: 1px solid black;
+            font-family: fantasy;
+        }
+    </style>
+    <p class="internal">{{ name }}</p>
+    <ul>
+        <li><strong>Testing the strong tag!</strong></li>
+        <li class="weird_list"><a href="https://www.marist.edu">Marist College</a></li>
+        <li>Testing out the <u>underline</u> tag</li>
+        <li class="weird_list">Testing out the <b>bold</b> tag</li>
+        <li class="weird_list">Testing out the <i>italic</i> tag</li>
+    </ul>
+    <h2>Look out code below</h2>
+    <code>
+        def calculate_change(change_amount):<br>
+        # For easy math<br>
+        change_amount = change_amount * 100<br>
+        <br>
+        # Declare Coins<br>
+        quarter = 25<br>
+        dime = 10<br>
+        nickel = 5<br>
+        penny = 1<br>
+    </code>
+    <div>
+        <img src="{{ url_for('static', filename='img/honest_work.png', _external=True) }}" alt="Meme">
+    </div>
+  </body>
+</html>
