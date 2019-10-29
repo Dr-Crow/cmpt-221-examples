@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block title %}Jim Crowley{% endblock title %}
+
+{% block nav_name %}Marist College{% endblock nav_name %}
+
+{% block masthead_name %}
+    {% if current_user.is_authenticated %}
+        {{ current_user.first_name }}
+    {% else %}
+        No User Logged In
+    {% endif %}
+{% endblock masthead_name %}
+{% block masthead_sub %}IBMer - Hiker - Teacher{% endblock masthead_sub %}
+{% block masthead %}
+    {{ super() }}
+{% endblock masthead %}
+

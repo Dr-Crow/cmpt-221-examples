@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Login Page{% endblock title %}
+{% block nav %}
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+         {% if current_user.is_authenticated %}
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ url_for('auth.logout') }}">Log Out</a>
+            </li>
+        {% else %}
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ url_for('auth.login') }}">Log In</a>
+            </li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+<!-- Contact Section Form -->
+<header class="masthead bg-primary text-white text-center">
+    <section class="page-section portfolio" id="portfolio">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    {{ form.email.label }} {{ form.email() }}
+                    {{ form.password.label }} {{ form.password() }}
+                    {{ form.remember_me.label }} {{ form.remember_me() }}
+                    {{ form.submit() }}
+                </form>
+            </div>
+        </div>
+        <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+    </section>
+</header>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
